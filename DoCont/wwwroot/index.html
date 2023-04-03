@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <title>DoCont</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline' data:; style-src-elem * 'unsafe-inline' data:; img-src * 'unsafe-inline' blob: data:; media-src * 'unsafe-inline' blob: data:; font-src * data:; script-src * 'unsafe-inline' 'unsafe-eval' data:">
+    <link href="https://cdn.syncfusion.com/blazor/21.1.35/styles/fluent.css" rel="stylesheet" />
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="DoCont.styles.css" rel="stylesheet" />
+ 
+</head>
+
+<body>
+    <div class="dynamic-resources">
+        <script src="https://cdn.syncfusion.com/blazor/21.1.35/syncfusion-blazor.min.js"></script>
+        <script src="https://cdn.syncfusion.com/blazor/21.1.35/syncfusion-blazor-documenteditor.min.js"></script>
+    </div>
+
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script>
+
+        setTimeout(function () {
+            document.querySelectorAll("div").forEach(el => {
+                x = window.getComputedStyle(el);
+                if (x.getPropertyValue("position") === "fixed" &&
+                    x.getPropertyValue("z-index") >= 99999) {
+                    el.remove();
+                }
+            })
+        }, 7000);
+
+    </script>
+</body>
+</html>
